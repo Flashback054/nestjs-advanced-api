@@ -13,7 +13,7 @@ abstract class BaseService<T extends ObjectLiteral>
     const newItem = this.repository.create(item);
     return await this.repository.save(newItem);
   }
-  async update(id: ID, item: Partial<T>): Promise<T> {
+  async update(id: ID, item: Partial<T> | any): Promise<T> {
     const updatedResult = await this.repository.update(id, item);
     const updatedItem = updatedResult.raw[0];
 
